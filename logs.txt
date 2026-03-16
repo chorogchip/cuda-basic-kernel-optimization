@@ -1,4 +1,0 @@
-
-day 1 : project creation
-day 2 : vecadd (reached memory throughput of roofline), hardware spec query
-day 3 : mat transpose, tried y * (n+1) + x, but no effect (memory throughput bound)
