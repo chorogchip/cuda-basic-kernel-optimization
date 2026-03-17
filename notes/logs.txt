@@ -1,38 +1,94 @@
 
 day 1 : project creation
+
 day 2 : vecadd (reached memory bandwidth roofline), hardware spec query
+
     Goal
         Measure the memory bandwidth roofline of my GPU!
+
     Observed Result
         peak 123 GElem/s at buf sz = 8MB(total mem traffic 24MB)
         drop to 33 GElem/s at buf sz = 32MB(total mem traffic 96MB)
+
     Interpretation
         2 reads + 1 write per elem -> 12 B/elem
         peak 123*12 = 1476 GB/s,
         drop to 33*12 = 396 GB/s
+
     HW spec
         my GPU(5060 ti 16GB blackwell): mem clock 14 GHz, 128-bit bus
         theoretical peak mem bandwidth: 14 GHz * 2 * 128 / 8 = 448 GB/s
+
     Conclusion
         396/448 = 88% of peak!
         this looks close to theoretical DRAM BW bound!
         measured peak performance is likely explained by cache residency
+
 day 3 : mat transpose
+
     Goal
-        practicing 2D memory-bound kernel, study memory access on 2D matrix
+        practicing 2D memory-bound kernel
+        study memory access on 2D matrix
+
     Observed Result
-        peak 116 GElem/s at buf sz = 16MB(total mem traffic 32MB)
-        drop to 38 GElem/s at buf sz = 64MB(total mem traffic 128MB)
-    Experiments
+        peak 116 GElem/s at buf sz = 16MB(total mem footprint 32MB)
+        drop to 38 GElem/s at buf sz = 64MB(total mem footprint 128MB)
+
+    Experiment
         tried y * (n+1) + x, but no improvement (1~2% slower)
             at least simple padding does not fix the issue!
             then how about focusing on coalesced global memory access?
                 lets try shared-memory tiling
+
     Interpretation
         1 read + 1 write per elem -> 8 B/elem
         peak 116*8 = 928 GB/s,
         drop to 38*8 = 304 GB/s
+
     Conclusion
         304/448 = 67% of peak!
         maybe can be better with shared memory?
+
+day 4 : mat transpose
+
+    Experiment
+        tried shared mem(cu4, cu5)
+        remove bank conflict on strided access(cu6)
+        scale thread per block to (32, 32) (cu7)
+
+    Observed Result
+        cu4: peak 113 GElem/s at buf 16MB(total 32MB)
+            drop to 37 GElem/s at buf 64MB(total 128MB)
+        cu5: peak 109 GElem/s at buf 16MB(total 32MB)
+            drop to 40 GElem/s at buf 64MB(total 128MB)
+        cu6: peak 118 GElem/s at buf 16MB(total 32MB)
+            drop to 40 GElem/s at buf 64MB(total 128MB)
+        cu7: peak 45 GElem/s at buf 16MB(total 32MB)
+            drop to 30 GElem/s at buf 64MB(total 32MB)
+
+    Interpretation
+        cu2 naive : 928 GB/s -> 304 GB/s (67% peak)
+        cu4 shared: 904 GB/s -> 296 GB/s (66% peak)
+        cu5 shared: 871 GB/s -> 320 GB/s (71% peak)
+        cu6 offset: 944 GB/s -> 320 GB/s (71% peak)
+        cu7 32x32 : 360 GB/s -> 240 GB/s (53% peak)
+
+    Conclusion
+        performance drops over 32MB of total memory footprint
+            = my GPU's L2 cache size!
+        shared memory doesnt help at small mem footprint (less than L2)
+            - load + store + syncthreads overhead
+        shared memory starts working little (4-5%)
+            in the mem footprint larger than L2 (32MB in case of mine)
+        cu4(block is moved in read) vs cu5(block is moved in write):
+            moving blocks on write seems better
+            also code is simpler
+                - thread[y][x] reads mem[y][x], stores in shared[y][x]
+            simple/coalesced read seems good!
+        [n][n+1] little helps in the mem fp smaller than L2
+        32x32 threads per block is too much
+            - threads per block is 1024
+            - my GPU: max threads per SM = 1536
+                -> only 1 block on SM
+                -> 1024/1536 = 66% occupancy
 
