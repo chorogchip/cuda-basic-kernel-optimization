@@ -1,0 +1,13 @@
+
+lets do sum reduction!
+
+coalesced read
+shared memory reduction
+__syncthreads()
+warp divergence
+block size tuning
+occupancy
+memory-bound vs sync overhead
+can be extended to warp-level primitive
+
+

@@ -92,3 +92,32 @@ day 4 : mat transpose
                 -> only 1 block on SM
                 -> 1024/1536 = 66% occupancy
 
+day 4 : reduce sum
+
+    Goal
+        learn about reduction, shared memory, divergence!
+        two bottleneck: memory-bound and sync overhead
+        parameter tuning
+            - read element count per thread
+            - thread per block
+            - how many partial kernels
+
+    Code
+        wrote vector reduce sum partial kernel, which reduces vector from size N to N / gridDim
+
+    Observed Result
+        performance increases by increasing vector size,
+        it stops increasing on N = 8M elem (32 MB), 54 GElem/s = 216 GB/s
+        then it makes plateau after 32MB footprint
+
+    Interpretation
+        216 GB/s : 48% of theoritical peak performance (by DRAM bandwidth)
+        32 MB : L2 cache size of my GPU
+            - but why the performance doesnt lower after L2?
+            - need more research, L2 can be coincidence
+
+        
+        
+
+
+    
