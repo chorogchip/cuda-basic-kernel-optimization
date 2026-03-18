@@ -6,6 +6,12 @@ FINISH=24
 TARGET_BIN=$1
 shift
 
+if [ "$#" -le 2 ]; then
+    echo "Usage: $0 <target> -st <logn> -fn <logn>"
+    echo "Example: $0 <target> -st 5 -fn 10"
+    exit 1
+fi
+
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -st) START="$2"; shift ;;
@@ -23,8 +29,7 @@ fi
 for (( i=$START; i<=$FINISH; i++ ))
 do
     SIZE=$((1 << i))
-    
-    printf "N = 2^%-2s (%-10s) | " "$i" "$SIZE"
-    
-    $TARGET_BIN $SIZE
+
+    RESULT=$("$TARGET_BIN" "$SIZE")
+    printf "%30s | N = 2^%-2d = %-10d\n" "$RESULT" "$i" "$SIZE"
 done

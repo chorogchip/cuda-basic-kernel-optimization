@@ -1,0 +1,92 @@
+==PROF== Connected to process 17325 (/home/mkkim/cuda-learning-100-days/bin/cu8)
+==PROF== Profiling "kernel_reduce_sum_partial" - 0 (1/1): 0%....50%....100% - 9 passes
+16746563107.025763 0.626144
+==PROF== Disconnected from process 17325
+[17325] cu8@127.0.0.1
+  kernel_reduce_sum_partial(float *, const float *, int) (4096, 1, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 12.0
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        13.76
+    SM Frequency                    Ghz         2.52
+    Elapsed Cycles                cycle       59,399
+    Memory Throughput                 %        84.95
+    DRAM Throughput                   %        40.54
+    Duration                         us        23.52
+    L1/TEX Cache Throughput           %        90.37
+    L2 Cache Throughput               %        15.51
+    SM Active Cycles              cycle    55,647.14
+    Compute (SM) Throughput           %        84.95
+    ----------------------- ----------- ------------
+
+    INF   This workload is utilizing greater than 80.0% of the available compute or memory performance of this device.  
+          To further improve performance, work will likely need to be shifted from the most utilized to another unit.   
+          Start by analyzing workloads in the Compute Workload Analysis section.                                        
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Cluster Scheduling Policy                           PolicySpread
+    Cluster Size                                                   0
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                  4,096
+    Preferred Cluster Size                                         0
+    Registers Per Thread             register/thread              22
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block       Kbyte/block            1.02
+    # SMs                                         SM              36
+    Stack Size                                                 1,024
+    Threads                                   thread       1,048,576
+    # TPCs                                                        18
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                               18.96
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Max Active Clusters                 cluster            0
+    Max Cluster Size                      block            8
+    Overall GPU Occupancy                     %            0
+    Cluster Occupancy                         %            0
+    Block Limit Barriers                  block           24
+    Block Limit SM                        block           24
+    Block Limit Registers                 block           10
+    Block Limit Shared Mem                block           16
+    Block Limit Warps                     block            6
+    Theoretical Active Warps per SM        warp           48
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        82.87
+    Achieved Active Warps Per SM           warp        39.78
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 17.13%                                                                                    
+          The difference between calculated theoretical (100.0%) and measured achieved occupancy (82.9%) can be the     
+          result of warp scheduling overheads or workload imbalances during the kernel execution. Load imbalances can   
+          occur between warps within a block as well as across blocks of the same kernel. See the CUDA Best Practices   
+          Guide (https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#occupancy) for more details on     
+          optimizing occupancy.                                                                                         
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle      131,192
+    Total DRAM Elapsed Cycles        cycle    1,294,336
+    Average L1 Active Cycles         cycle    55,647.14
+    Total L1 Elapsed Cycles          cycle    2,131,248
+    Average L2 Active Cycles         cycle    48,275.50
+    Total L2 Elapsed Cycles          cycle      845,680
+    Average SM Active Cycles         cycle    55,647.14
+    Total SM Elapsed Cycles          cycle    2,131,248
+    Average SMSP Active Cycles       cycle    55,546.76
+    Total SMSP Elapsed Cycles        cycle    8,524,992
+    -------------------------- ----------- ------------
+

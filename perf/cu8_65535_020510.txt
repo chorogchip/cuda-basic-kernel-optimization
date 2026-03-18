@@ -1,0 +1,103 @@
+==PROF== Connected to process 17183 (/home/mkkim/cuda-learning-100-days/bin/cu8)
+==PROF== Profiling "kernel_reduce_sum_partial" - 0 (1/1): 0%....50%....100% - 9 passes
+1770527162.686489 0.370144
+==PROF== Disconnected from process 17183
+[17183] cu8@127.0.0.1
+  kernel_reduce_sum_partial(float *, const float *, int) (256, 1, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 12.0
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        13.71
+    SM Frequency                    Ghz         2.51
+    Elapsed Cycles                cycle        9,013
+    Memory Throughput                 %        34.91
+    DRAM Throughput                   %        16.91
+    Duration                         us         3.58
+    L1/TEX Cache Throughput           %        65.82
+    L2 Cache Throughput               %         6.46
+    SM Active Cycles              cycle     4,775.56
+    Compute (SM) Throughput           %        34.91
+    ----------------------- ----------- ------------
+
+    OPT   This workload exhibits low compute throughput and memory bandwidth utilization relative to the peak           
+          performance of this device. Achieved compute throughput and/or memory bandwidth below 60.0% of peak           
+          typically indicate latency issues. Look at Scheduler Statistics and Warp State Statistics for potential       
+          reasons.                                                                                                      
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Cluster Scheduling Policy                           PolicySpread
+    Cluster Size                                                   0
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                    256
+    Preferred Cluster Size                                         0
+    Registers Per Thread             register/thread              22
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block       Kbyte/block            1.02
+    # SMs                                         SM              36
+    Stack Size                                                 1,024
+    Threads                                   thread          65,536
+    # TPCs                                                        18
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                1.19
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 50%                                                                                             
+          A wave of thread blocks is defined as the maximum number of blocks that can be executed in parallel on the    
+          target GPU. The number of blocks in a wave depends on the number of multiprocessors and the theoretical       
+          occupancy of the kernel. This kernel launch results in 1 full waves and a partial wave of 40 thread blocks.   
+          Under the assumption of a uniform execution duration of all thread blocks, this partial wave may account for  
+          up to 50.0% of the total runtime of this kernel. Try launching a grid with no partial wave. The overall       
+          impact of this tail effect also lessens with the number of full waves executed for a grid. See the Hardware   
+          Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model) description for     
+          more details on launch configurations.                                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Max Active Clusters                 cluster            0
+    Max Cluster Size                      block            8
+    Overall GPU Occupancy                     %            0
+    Cluster Occupancy                         %            0
+    Block Limit Barriers                  block           24
+    Block Limit SM                        block           24
+    Block Limit Registers                 block           10
+    Block Limit Shared Mem                block           16
+    Block Limit Warps                     block            6
+    Theoretical Active Warps per SM        warp           48
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        72.53
+    Achieved Active Warps Per SM           warp        34.81
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 27.47%                                                                                    
+          The difference between calculated theoretical (100.0%) and measured achieved occupancy (72.5%) can be the     
+          result of warp scheduling overheads or workload imbalances during the kernel execution. Load imbalances can   
+          occur between warps within a block as well as across blocks of the same kernel. See the CUDA Best Practices   
+          Guide (https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#occupancy) for more details on     
+          optimizing occupancy.                                                                                         
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle        8,312
+    Total DRAM Elapsed Cycles        cycle      196,608
+    Average L1 Active Cycles         cycle     4,775.56
+    Total L1 Elapsed Cycles          cycle      324,120
+    Average L2 Active Cycles         cycle     3,244.62
+    Total L2 Elapsed Cycles          cycle      128,704
+    Average SM Active Cycles         cycle     4,775.56
+    Total SM Elapsed Cycles          cycle      324,120
+    Average SMSP Active Cycles       cycle     4,674.94
+    Total SMSP Elapsed Cycles        cycle    1,296,480
+    -------------------------- ----------- ------------
+
