@@ -116,8 +116,28 @@ day 4 : reduce sum
             - but why the performance doesnt lower after L2?
             - need more research, L2 can be coincidence
 
-        
-        
+day 5 : script, parameter search, profile, plot
+
+    What I did
+        made compiling script that runs for parameter combinations
+        add simple ncu profiler wrapper script
+        made runing script that runs for parameter combinations
+            - performs parameter search!
+            - parameter combination (in reduce sum):
+                - reads per thread
+                - blockDim
+        made python script that parses run log and plots, makes image
+            this script is ai generated.
+
+    Observation
+        best read_per_thread value: 1.
+        - better occupancy by more blocks and more threads
+        best block size: 64 or 128
+        - also good in occupancy and better reducing
+        but small read_per_thread and block_size makes output size bigger
+            and that is not treated in measurement
+            future work: make recude sum to 1 elem and profile together
+
 
 
     
