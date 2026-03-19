@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cuda_runtime.h>
 
-__global__ void kernel_reduce_sum_partial(
-        float* dest, const float* src, int n) {
+
+__global__ void kernel_reduce_sum(float* dest, const float* src, int n) {
 
     float local_sum = 0.0f;
 
@@ -58,21 +58,20 @@ int main(int argc, const char** argv) {
     cudaMalloc(&d_b, bytes);
 
     cudaMemcpy(d_a, h_a, bytes, cudaMemcpyHostToDevice);
-
-    size_t read_per_block = (size_t)(MY_BLOCKDIM) * (size_t)(MY_READPERTHREAD);
-    const int blk_cnt = (n + read_per_block - 1) / read_per_block;
+    
+    const size_t blk_cnt = (n + MY_BLOCKDIM - 1U) / MY_BLOCKDIM;
 
     kernel_reduce_sum_partial<<<blk_cnt, MY_BLOCKDIM>>>(d_b, d_a, n);
     
     cudaMemcpy(h_b, d_b, bytes, cudaMemcpyDeviceToHost);
 
-    double sum_ans = 0.0;
-    double sum_res = 0.0;
+    float sum_ans = 0.0f;
+    float sum_res = 0.0f;
 
-    for (int i = 0; i < n; ++i) sum_ans += h_a[i];
-    for (int i = 0; i < blk_cnt; ++i) sum_res += h_b[i];
+    for (size_t i = 0; i < n; ++i) sum_ans += h_a[i];
+    for (size_t i = 0; i < blk_cnt; ++i) sum_res += h_b[i];
     
-    if (std::abs(sum_ans - sum_res) > 0.0001f * (double)n) {
+    if (std::abs(sum_ans - sum_res) > 0.0001f * (float)n) {
         fprintf(stderr, "Validation Failed, ans:[%f] res:[%f]\n", sum_ans, sum_res);
         exit(1);
     }

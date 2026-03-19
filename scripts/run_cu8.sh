@@ -9,7 +9,7 @@ do
         
         if [ -f "$BIN" ]; then
             echo "Executing: $BIN"
-            ./range_run.sh "$BIN" -st 8 -fn 24
+            ./range_run.sh "$BIN" -st 8 -fn 27
         else
             echo "Error: $BIN not found"
         fi

@@ -1,0 +1,26 @@
+Total rows: 400
+
+Best config per N:
+N=256       (2^8 )  best: block=128  v=1   throughput=0.110 G  time=0.023232 ms
+N=512       (2^9 )  best: block=64   v=4   throughput=0.205 G  time=0.024960 ms
+N=1024      (2^10)  best: block=64   v=4   throughput=0.407 G  time=0.025184 ms
+N=2048      (2^11)  best: block=128  v=2   throughput=0.844 G  time=0.024256 ms
+N=4096      (2^12)  best: block=64   v=1   throughput=1.654 G  time=0.024768 ms
+N=8192      (2^13)  best: block=128  v=1   throughput=3.220 G  time=0.025440 ms
+N=16384     (2^14)  best: block=256  v=2   throughput=6.229 G  time=0.026304 ms
+N=32768     (2^15)  best: block=256  v=4   throughput=13.333 G  time=0.024576 ms
+N=65536     (2^16)  best: block=128  v=4   throughput=23.786 G  time=0.027552 ms
+N=131072    (2^17)  best: block=128  v=8   throughput=38.642 G  time=0.033920 ms
+N=262144    (2^18)  best: block=512  v=8   throughput=65.799 G  time=0.039840 ms
+N=524288    (2^19)  best: block=128  v=8   throughput=118.467 G  time=0.044256 ms
+N=1048576   (2^20)  best: block=128  v=8   throughput=174.949 G  time=0.059936 ms
+N=2097152   (2^21)  best: block=128  v=8   throughput=240.235 G  time=0.087296 ms
+N=4194304   (2^22)  best: block=128  v=8   throughput=283.828 G  time=0.147776 ms
+N=8388608   (2^23)  best: block=128  v=8   throughput=316.446 G  time=0.265088 ms
+N=16777216  (2^24)  best: block=512  v=8   throughput=104.652 G  time=1.603136 ms
+N=33554432  (2^25)  best: block=512  v=8   throughput=105.733 G  time=3.173504 ms
+N=67108864  (2^26)  best: block=512  v=8   throughput=106.361 G  time=6.309536 ms
+N=134217728 (2^27)  best: block=512  v=8   throughput=106.776 G  time=12.570048 ms
+
+Saved CSV: plot_cu8/parsed.csv
+Saved plots under: plot_cu8

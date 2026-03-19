@@ -131,13 +131,45 @@ day 5 : script, parameter search, profile, plot
 
     Observation
         best read_per_thread value: 1.
-        - better occupancy by more blocks and more threads
+            better occupancy by more blocks and more threads
         best block size: 64 or 128
-        - also good in occupancy and better reducing
+            also good in occupancy and better reducing
         but small read_per_thread and block_size makes output size bigger
             and that is not treated in measurement
             future work: make recude sum to 1 elem and profile together
 
+day 6 : fixing reduction
+
+    Fix
+        found bug in gridDim count, making threadidx not effective
+            fixed kernel launch to right block count
+        found validation bug in N=2^27 elem, caused by floating-point precision limits
+            changed validation sum data to double
+    
+    Observation
+        throughput maximized at memory footprint 32MB (L2 cache):
+            on N=2^23 blockDim=128 read_per_thread=8,
+            316 GElem/s = 1264 GB/s
+        after L2, it makes plateau at almost close to DRAM bw right away
+
+    Interpretation
+        read_per_thread > 1 really works!
+            rpc=INF makes kernel perfect coalesced memory read (block-strided)
+        reached memory bandwidth plateau!
+            106.7 GElem/s = 426.8 GB/s = 95.2% of peak mem bw roofline!!!
+        blockdim is not that important
+            block dim 128, 256, 512 works well
+            block dim 1024 works bad (by low occupancy!)
+
+    Next Step
+        make complete reduction to 1 elemeny all by CUDA kernel
+        in this case, block size can be important
+            it can decide kernel launch count!
+        warp-unrolled, __shfl_down_sync()
+            for optimizing in small memory size
+    
+
+        
 
 
     

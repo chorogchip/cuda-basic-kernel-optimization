@@ -4,7 +4,7 @@ SRC="cu8_reduction_add"
 
 for block_dim in 64 128 256 512 1024
 do
-    for rpt in 1 2 4 8
+    for rpt in 1 2 4 8 16 32
     do
         SUFFIX="${block_dim}_${rpt}"
         echo "Building: ${SUFFIX}"
