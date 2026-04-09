@@ -1,0 +1,11 @@
+transpose	config=configs/target_params.txt,target=transpose_3	N         32	LOGN 5	elem_per_sec	376028200.201179	TOTALMS 0.027232
+transpose	config=configs/target_params.txt,target=transpose_3	N         64	LOGN 6	elem_per_sec	1423804211.607976	TOTALMS 0.028768
+transpose	config=configs/target_params.txt,target=transpose_3	N        128	LOGN 7	elem_per_sec	5412262155.803480	TOTALMS 0.030272
+transpose	config=configs/target_params.txt,target=transpose_3	N        256	LOGN 8	elem_per_sec	19302544720.610840	TOTALMS 0.033952
+transpose	config=configs/target_params.txt,target=transpose_3	N        512	LOGN 9	elem_per_sec	46624929290.492546	TOTALMS 0.056224
+transpose	config=configs/target_params.txt,target=transpose_3	N       1024	LOGN 10	elem_per_sec	88826240761.831467	TOTALMS 0.118048
+transpose	config=configs/target_params.txt,target=transpose_3	N       2048	LOGN 11	elem_per_sec	110070542019.755417	TOTALMS 0.381056
+transpose	config=configs/target_params.txt,target=transpose_3	N       4096	LOGN 12	elem_per_sec	37558868647.475906	TOTALMS 4.466912
+transpose	config=configs/target_params.txt,target=transpose_3	N       8192	LOGN 13	elem_per_sec	38058002971.743271	TOTALMS 17.633312
+transpose	config=configs/target_params.txt,target=transpose_3	N      16384	LOGN 14	elem_per_sec	38175864829.129372	TOTALMS 70.315488
+transpose	config=configs/target_params.txt,target=transpose_3	N      32768	LOGN 15	elem_per_sec	37984422520.662140	TOTALMS 282.679518
