@@ -1,0 +1,16 @@
+vector_add	config=configs/target_params.txt,target=vector_add	N       1024	LOGN 10	elem_per_sec	403530901.270360	TOTALMS 0.025376
+vector_add	config=configs/target_params.txt,target=vector_add	N       2048	LOGN 11	elem_per_sec	727272721.592429	TOTALMS 0.028160
+vector_add	config=configs/target_params.txt,target=vector_add	N       4096	LOGN 12	elem_per_sec	1511216031.885634	TOTALMS 0.027104
+vector_add	config=configs/target_params.txt,target=vector_add	N       8192	LOGN 13	elem_per_sec	2749731443.221815	TOTALMS 0.029792
+vector_add	config=configs/target_params.txt,target=vector_add	N      16384	LOGN 14	elem_per_sec	6289926381.356014	TOTALMS 0.026048
+vector_add	config=configs/target_params.txt,target=vector_add	N      32768	LOGN 15	elem_per_sec	11756601604.805428	TOTALMS 0.027872
+vector_add	config=configs/target_params.txt,target=vector_add	N      65536	LOGN 16	elem_per_sec	20770791247.236622	TOTALMS 0.031552
+vector_add	config=configs/target_params.txt,target=vector_add	N     131072	LOGN 17	elem_per_sec	33601312206.784554	TOTALMS 0.039008
+vector_add	config=configs/target_params.txt,target=vector_add	N     262144	LOGN 18	elem_per_sec	56186557253.162102	TOTALMS 0.046656
+vector_add	config=configs/target_params.txt,target=vector_add	N     524288	LOGN 19	elem_per_sec	87056321860.480118	TOTALMS 0.060224
+vector_add	config=configs/target_params.txt,target=vector_add	N    1048576	LOGN 20	elem_per_sec	103499682881.562317	TOTALMS 0.101312
+vector_add	config=configs/target_params.txt,target=vector_add	N    2097152	LOGN 21	elem_per_sec	126444145000.531448	TOTALMS 0.165856
+vector_add	config=configs/target_params.txt,target=vector_add	N    4194304	LOGN 22	elem_per_sec	42923762231.610054	TOTALMS 0.977152
+vector_add	config=configs/target_params.txt,target=vector_add	N    8388608	LOGN 23	elem_per_sec	33743177767.929035	TOTALMS 2.486016
+vector_add	config=configs/target_params.txt,target=vector_add	N   16777216	LOGN 24	elem_per_sec	33470675192.509285	TOTALMS 5.012512
+vector_add	config=configs/target_params.txt,target=vector_add	N   33554432	LOGN 25	elem_per_sec	33326107895.976028	TOTALMS 10.068512
