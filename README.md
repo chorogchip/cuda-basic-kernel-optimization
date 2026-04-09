@@ -89,3 +89,21 @@ plots/transpose_combined_plot.png
 ```
 
 The plotting script accepts only raw `*_run.txt` files and writes PNG files under `./plots/`.
+
+## Profile
+
+From the repository root:
+
+Run Nsight Compute for one built kernel binary:
+
+```bash
+./scripts/nsite.sh kernels/reduction/bin/reduction_1_128_32
+```
+
+You can also pass `n` explicitly:
+
+```bash
+./scripts/nsite.sh kernels/reduction/bin/reduction_1_128_32 8388608
+```
+
+The script prints the profiler output to stdout.
