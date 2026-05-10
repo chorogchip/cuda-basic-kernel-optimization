@@ -56,6 +56,9 @@ Main takeaway:
   <img src="./plots/reduction_2_run_plot.png" width="48%">
 </p>
 <br>
+
+summerized by max performance:
+
 ![](./plots/reduction_maxperf_plot.png)
 
 - Early reduction experiments plateaued around `54 GElem/s`, then a launch-count bug and a validation issue were fixed.
