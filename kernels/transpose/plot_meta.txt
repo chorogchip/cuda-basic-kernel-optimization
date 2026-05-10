@@ -1,0 +1,5 @@
+versioned=true
+params=
+dram_bytes_per_elem=8
+l2_working_set_bytes_per_unit=8
+l2_problem_power=2

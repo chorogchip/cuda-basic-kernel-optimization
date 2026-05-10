@@ -3,12 +3,17 @@
 #include <cstdlib>
 
 #include "../../../common/culib.h"
+#include <cub/cub.cuh>
 #include <cuda_runtime.h>
 
 namespace {
 
 #ifndef MY_BLOCKDIM
 #define MY_BLOCKDIM 256
+#endif
+
+#ifndef PREFIX_SCAN_VARIANT
+#define PREFIX_SCAN_VARIANT 1
 #endif
 
 constexpr int WARP_P_BLOCK = MY_BLOCKDIM / 32;
@@ -20,6 +25,8 @@ struct Data {
     float* d_s;
     float* d_d;
     float* d_b;
+    void* d_temp_storage;
+    size_t temp_storage_bytes;
 } data_;
 
 __global__ void kernel_prefix(
@@ -110,6 +117,8 @@ void init_problem(size_t n) {
     data_.d_s = nullptr;
     data_.d_d = nullptr;
     data_.d_b = nullptr;
+    data_.d_temp_storage = nullptr;
+    data_.temp_storage_bytes = 0;
     if (data_.h_s == nullptr || data_.h_d == nullptr) {
         if (data_.h_d == nullptr) {
             std::fprintf(stderr, "Host allocation failed for prefix_scan.output (count=%zu)\n", n);
@@ -124,10 +133,28 @@ void init_problem(size_t n) {
     CHECK_CUDA(cudaMalloc(&data_.d_d, bytes * 2));
     CHECK_CUDA(cudaMalloc(&data_.d_b, bytes * 2));
     CHECK_CUDA(cudaMemcpy(data_.d_s, data_.h_s, bytes, cudaMemcpyHostToDevice));
+    CHECK_CUDA(cub::DeviceScan::InclusiveSum(
+        nullptr,
+        data_.temp_storage_bytes,
+        data_.d_s,
+        data_.d_d,
+        data_.n
+    ));
+    CHECK_CUDA(cudaMalloc(&data_.d_temp_storage, data_.temp_storage_bytes));
 }
 
 void exec_problem() {
     exec_problem_inner(data_.d_b, data_.d_d, data_.d_s, data_.n);
+}
+
+void exec_baseline() {
+    CHECK_CUDA(cub::DeviceScan::InclusiveSum(
+        data_.d_temp_storage,
+        data_.temp_storage_bytes,
+        data_.d_s,
+        data_.d_d,
+        data_.n
+    ));
 }
 
 bool validate_problem() {
@@ -150,10 +177,15 @@ bool validate_problem() {
     return true;
 }
 
+bool validate_baseline() {
+    return validate_problem();
+}
+
 void clear_problem() {
     CHECK_CUDA(cudaFree(data_.d_s));
     CHECK_CUDA(cudaFree(data_.d_d));
     CHECK_CUDA(cudaFree(data_.d_b));
+    CHECK_CUDA(cudaFree(data_.d_temp_storage));
     std::free(data_.h_s);
     std::free(data_.h_d);
 }

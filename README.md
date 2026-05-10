@@ -2,8 +2,10 @@
 
 ## 1. Introduction
 
-This repository studies a small set of CUDA kernels with the same workflow:
+This project optimizes CUDA kernels.
+<br>
 
+workflow:
 - implement baseline and tuned variants
 - run size sweeps
 - summarize the best-performing configuration at each size
@@ -11,13 +13,12 @@ This repository studies a small set of CUDA kernels with the same workflow:
 - inspect representative kernels with Nsight Compute
 
 Current kernel families:
-
 - vector add
 - matrix transpose
 - reduction
 - prefix scan
 
-The project is organized to make each kernel easy to build, benchmark, compare, and profile. Shared runtime and benchmark code lives in `common/`, while each kernel family has its own `src/`, `configs/`, `results/`, and `README.md`.
+<br>
 
 
 ## 2. Results
@@ -81,15 +82,76 @@ make clean
 
 ### b. Run
 
-Run all configured kernel sweeps:
+Run all configured custom-kernel sweeps:
 ```bash
 make run-all
 ```
+
+Run all configured NVIDIA-library baseline sweeps:
+```bash
+make run-baseline-all
+```
+
+Run one kernel family's custom sweep or NVIDIA baseline:
+```bash
+make run-softmax
+make run-baseline-softmax
+```
+
+Run only the original four optimized kernels, including their baselines, summaries, and plots:
+```bash
+make vector_add transpose reduction prefix_scan \
+     run-vector_add run-baseline-vector_add \
+     run-transpose run-baseline-transpose \
+     run-reduction run-baseline-reduction \
+     run-prefix_scan run-baseline-prefix_scan \
+     summarize-all plot-all
+```
+
+Inside an individual kernel directory, executable mode is selected by the optional third argument:
+```bash
+./bin/softmax_1_128 1048576
+./bin/softmax_1_128 1048576 baseline
+```
+
+Normal runs write `impl=my`; baseline runs write `impl=baseline`. Baseline result files are named like:
+
+```text
+kernels/softmax/results/softmax_baseline_run.txt
+```
+
+Custom runs sweep all configured versions and tuning parameters. Baseline runs are independent of that sweep by default: each kernel family runs one representative baseline target across all configured input sizes. For example, matrix transpose custom runs write versioned files such as `transpose_1_run.txt` through `transpose_6_run.txt`, while baseline runs write one `transpose_baseline_run.txt`.
+
+Current baseline libraries:
+
+| Kernel | Baseline |
+|---|---|
+| vector add | Thrust `transform` |
+| matrix transpose | Thrust `transform` over output indices |
+| reduction | CUB `DeviceReduce::Sum` |
+| prefix scan | CUB `DeviceScan::InclusiveSum` |
+| histogram | CUB `DeviceHistogram` |
+| stream compaction | CUB `DeviceSelect::If` |
+| radix sort | CUB `DeviceRadixSort` |
+| SpMV | cuSPARSE `cusparseSpMV` |
+| softmax, layernorm, fused ops, top-k, convolution 2D, gather/scatter | Thrust |
 
 Remove all saved run output files:
 ```bash
 make clean-run-all
 ```
+
+Run the full build-run-summarize-plot pipeline:
+```bash
+make pipeline-all
+```
+
+Run the same pipeline for one kernel family:
+```bash
+make pipeline-softmax
+```
+
+For the current naive kernels, per-kernel pipeline runs are usually more practical than `pipeline-all` because naive sort/top-k style kernels are intentionally slow at large sizes.
 
 ### c. Summarize Results
 
@@ -101,7 +163,7 @@ This writes `kernels/reduction/results/reduction_1_run_maxperf.txt`
 
 Summarize all run files under `./kernels/*/results/*_run.txt`:
 ```bash
-./scripts/summarize_maxperf.sh
+make summarize-all
 ```
 
 ### d. Plot Results
@@ -115,12 +177,15 @@ This writes `plots/reduction_1_run_plot.png`
 Plot multiple raw run files together in one combined figure:
 ```bash
 ./scripts/plot_elem_per_sec.py \
-  kernels/transpose/results/transpose_1_run.txt \
-  kernels/transpose/results/transpose_2_run.txt \
-  kernels/transpose/results/transpose_3_run.txt
-  ...
+  kernels/softmax/results/softmax_1_run.txt \
+  kernels/softmax/results/softmax_baseline_run.txt
 ```
-This writes `plots/transpose_combined_plot.png`
+This writes a combined plot under `plots/`.
+
+Plot all available run files grouped by kernel family:
+```bash
+make plot-all
+```
 
 ### e. Profile
 

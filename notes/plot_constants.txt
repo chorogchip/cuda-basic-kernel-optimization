@@ -1,0 +1,5 @@
+# Shared plot reference constants.
+dram_bandwidth_label=448 GB/s
+dram_bandwidth_gbps=448
+l2_cache_label=32 MB
+l2_cache_bytes=33554432

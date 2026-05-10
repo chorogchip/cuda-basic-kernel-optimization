@@ -37,3 +37,12 @@ float* gen_sparse_buf(size_t n) {
 }
 
 }  // namespace my_cuda_opt
+
+void __attribute__((weak)) exec_baseline() {
+    std::fprintf(stderr, "Baseline implementation is not available for this kernel\n");
+    std::exit(1);
+}
+
+bool __attribute__((weak)) validate_baseline() {
+    return false;
+}

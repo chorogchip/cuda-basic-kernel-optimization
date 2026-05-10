@@ -2,14 +2,19 @@
 
 int main(int argc, const char** argv) {
     size_t n = 0;
-    if (!my_cuda_opt::parse_size_t_arg(argc, argv, &n)) {
+    my_cuda_opt::ImplMode mode = my_cuda_opt::ImplMode::kProblem;
+    if (!my_cuda_opt::parse_args(argc, argv, &n, &mode)) {
         return 1;
     }
 
     init_problem(n);
-    exec_problem();
+    const bool use_baseline = mode == my_cuda_opt::ImplMode::kBaseline;
+    void (*exec_impl)() = use_baseline ? exec_baseline : exec_problem;
+    bool (*validate_impl)() = use_baseline ? validate_baseline : validate_problem;
 
-    if (!validate_problem()) {
+    exec_impl();
+
+    if (!validate_impl()) {
         std::fprintf(stderr, "Validation failed\n");
         clear_problem();
         return 1;
@@ -23,7 +28,7 @@ int main(int argc, const char** argv) {
     double total_ms = 0.0;
     for (int iter = 0; iter < my_cuda_opt::kBenchmarkIterations; ++iter) {
         CHECK_CUDA(cudaEventRecord(start));
-        exec_problem();
+        exec_impl();
         CHECK_CUDA(cudaEventRecord(stop));
         CHECK_CUDA(cudaEventSynchronize(stop));
 
@@ -36,8 +41,9 @@ int main(int argc, const char** argv) {
         static_cast<double>(get_work_items()) * my_cuda_opt::kBenchmarkIterations * 1000.0 / total_ms;
 
     std::printf(
-        "%s\t%s\tN %10zu\tLOGN %zu\t%s\t%.6f\tTOTALMS %.6f\n",
+        "%s\timpl=%s\t%s\tN %10zu\tLOGN %zu\t%s\t%.6f\tTOTALMS %.6f\n",
         MY_CUDA_SOURCE_NAME,
+        my_cuda_opt::impl_mode_name(mode),
         MY_CUDA_BUILD_CONFIG,
         n,
         my_cuda_opt::floor_log2_ceil(n),

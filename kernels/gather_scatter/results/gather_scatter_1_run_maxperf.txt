@@ -1,0 +1,10 @@
+gather_scatter	impl=my	config=configs/target_params.txt,target=gather_scatter_1_512	N       1024	LOGN 10	elem_per_sec	395061729.503394	TOTALMS 0.025920
+gather_scatter	impl=my	config=configs/target_params.txt,target=gather_scatter_1_128	N       4096	LOGN 12	elem_per_sec	1504112794.374715	TOTALMS 0.027232
+gather_scatter	impl=my	config=configs/target_params.txt,target=gather_scatter_1_256	N      16384	LOGN 14	elem_per_sec	5156092640.896739	TOTALMS 0.031776
+gather_scatter	impl=my	config=configs/target_params.txt,target=gather_scatter_1_128	N      65536	LOGN 16	elem_per_sec	13094628926.361528	TOTALMS 0.050048
+gather_scatter	impl=my	config=configs/target_params.txt,target=gather_scatter_1_256	N     262144	LOGN 18	elem_per_sec	25624022419.057941	TOTALMS 0.102304
+gather_scatter	impl=my	config=configs/target_params.txt,target=gather_scatter_1_512	N    1048576	LOGN 20	elem_per_sec	33739702957.135643	TOTALMS 0.310784
+gather_scatter	impl=my	config=configs/target_params.txt,target=gather_scatter_1_256	N    4194304	LOGN 22	elem_per_sec	36193736916.259544	TOTALMS 1.158848
+gather_scatter	impl=my	config=configs/target_params.txt,target=gather_scatter_1_512	N   16777216	LOGN 24	elem_per_sec	3873011360.177320	TOTALMS 43.318272
+gather_scatter	impl=my	config=configs/target_params.txt,target=gather_scatter_1_128	N   67108864	LOGN 26	elem_per_sec	3801995097.962688	TOTALMS 176.509602
+gather_scatter	impl=my	config=configs/target_params.txt,target=gather_scatter_1_128	N  134217728	LOGN 27	elem_per_sec	3797503186.282593	TOTALMS 353.436775

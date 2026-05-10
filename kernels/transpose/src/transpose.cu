@@ -3,6 +3,9 @@
 
 #include "../../../common/culib.h"
 #include <cuda_runtime.h>
+#include <thrust/device_ptr.h>
+#include <thrust/for_each.h>
+#include <thrust/iterator/counting_iterator.h>
 
 namespace {
 
@@ -27,6 +30,19 @@ struct Data {
     float* d_s;
     float* d_d;
 } data_;
+
+struct TransposeWrite {
+    const float* src;
+    float* dest;
+    int n;
+    int stride;
+
+    __host__ __device__ void operator()(size_t idx) const {
+        const int y = static_cast<int>(idx / static_cast<size_t>(n));
+        const int x = static_cast<int>(idx - static_cast<size_t>(y) * static_cast<size_t>(n));
+        dest[y * stride + x] = src[x * stride + y];
+    }
+};
 
 __global__ void kernel_mat_transpose(float* res, const float* src, int n) {
 #if TRANSPOSE_VARIANT == 1
@@ -174,6 +190,15 @@ void exec_problem() {
     CHECK_CUDA(cudaGetLastError());
 }
 
+void exec_baseline() {
+    thrust::counting_iterator<size_t> first(0);
+    thrust::for_each(
+        first,
+        first + static_cast<size_t>(data_.n) * static_cast<size_t>(data_.n),
+        TransposeWrite{data_.d_s, data_.d_d, data_.n, data_.stride}
+    );
+}
+
 bool validate_problem() {
     CHECK_CUDA(cudaMemcpy(data_.h_d, data_.d_d, data_.elem_count * sizeof(float), cudaMemcpyDeviceToHost));
     for (int y = 0; y < data_.n; ++y) {
@@ -184,6 +209,10 @@ bool validate_problem() {
         }
     }
     return true;
+}
+
+bool validate_baseline() {
+    return validate_problem();
 }
 
 void clear_problem() {

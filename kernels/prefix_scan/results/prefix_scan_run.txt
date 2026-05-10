@@ -1,105 +1,105 @@
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N        256	LOGN 8	elem_per_sec	46948356.550171	TOTALMS 0.054528
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N        512	LOGN 9	elem_per_sec	95693779.156899	TOTALMS 0.053504
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N       1024	LOGN 10	elem_per_sec	177089097.185090	TOTALMS 0.057824
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N       2048	LOGN 11	elem_per_sec	374926771.438353	TOTALMS 0.054624
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N       4096	LOGN 12	elem_per_sec	717891194.734684	TOTALMS 0.057056
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N       8192	LOGN 13	elem_per_sec	1001173255.679411	TOTALMS 0.081824
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N      16384	LOGN 14	elem_per_sec	1921921890.686178	TOTALMS 0.085248
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N      32768	LOGN 15	elem_per_sec	3853970679.203010	TOTALMS 0.085024
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N      65536	LOGN 16	elem_per_sec	6763540341.217040	TOTALMS 0.096896
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N     131072	LOGN 17	elem_per_sec	12792004910.178644	TOTALMS 0.102464
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N     262144	LOGN 18	elem_per_sec	21086228858.710419	TOTALMS 0.124320
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N     524288	LOGN 19	elem_per_sec	25315204037.202789	TOTALMS 0.207104
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N    1048576	LOGN 20	elem_per_sec	31279114091.255234	TOTALMS 0.335232
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N    2097152	LOGN 21	elem_per_sec	35679442415.058662	TOTALMS 0.587776
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N    4194304	LOGN 22	elem_per_sec	35913089068.252037	TOTALMS 1.167904
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N    8388608	LOGN 23	elem_per_sec	24602216430.285446	TOTALMS 3.409696
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N   16777216	LOGN 24	elem_per_sec	23999377573.088268	TOTALMS 6.990688
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N   33554432	LOGN 25	elem_per_sec	23848020558.690434	TOTALMS 14.070112
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N   67108864	LOGN 26	elem_per_sec	23778824257.291607	TOTALMS 28.222112
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N  134217728	LOGN 27	elem_per_sec	23826466676.753056	TOTALMS 56.331360
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_64	N  268435456	LOGN 28	elem_per_sec	23865966643.812881	TOTALMS 112.476255
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N        256	LOGN 8	elem_per_sec	46620046.255925	TOTALMS 0.054912
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N        512	LOGN 9	elem_per_sec	92753624.260063	TOTALMS 0.055200
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N       1024	LOGN 10	elem_per_sec	189237138.049786	TOTALMS 0.054112
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N       2048	LOGN 11	elem_per_sec	364257258.573538	TOTALMS 0.056224
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N       4096	LOGN 12	elem_per_sec	718294031.353138	TOTALMS 0.057024
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N       8192	LOGN 13	elem_per_sec	1497076013.436302	TOTALMS 0.054720
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N      16384	LOGN 14	elem_per_sec	2934097418.862336	TOTALMS 0.055840
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N      32768	LOGN 15	elem_per_sec	3992202770.443234	TOTALMS 0.082080
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N      65536	LOGN 16	elem_per_sec	7023319691.694218	TOTALMS 0.093312
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N     131072	LOGN 17	elem_per_sec	14046639243.192616	TOTALMS 0.093312
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N     262144	LOGN 18	elem_per_sec	24373698020.170261	TOTALMS 0.107552
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N     524288	LOGN 19	elem_per_sec	36727191658.323555	TOTALMS 0.142752
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N    1048576	LOGN 20	elem_per_sec	45618822717.696838	TOTALMS 0.229856
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N    2097152	LOGN 21	elem_per_sec	53546858134.277969	TOTALMS 0.391648
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N    4194304	LOGN 22	elem_per_sec	53755486702.647720	TOTALMS 0.780256
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N    8388608	LOGN 23	elem_per_sec	24716109301.546711	TOTALMS 3.393984
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N   16777216	LOGN 24	elem_per_sec	24138156822.854881	TOTALMS 6.950496
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N   33554432	LOGN 25	elem_per_sec	23964986376.005733	TOTALMS 14.001440
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N   67108864	LOGN 26	elem_per_sec	23915656866.279839	TOTALMS 28.060640
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N  134217728	LOGN 27	elem_per_sec	24002728172.665138	TOTALMS 55.917697
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_128	N  268435456	LOGN 28	elem_per_sec	23842177613.235317	TOTALMS 112.588481
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N        256	LOGN 8	elem_per_sec	89887639.413355	TOTALMS 0.028480
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N        512	LOGN 9	elem_per_sec	99502486.293870	TOTALMS 0.051456
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N       1024	LOGN 10	elem_per_sec	195838431.525126	TOTALMS 0.052288
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N       2048	LOGN 11	elem_per_sec	365296807.419736	TOTALMS 0.056064
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N       4096	LOGN 12	elem_per_sec	732265442.167517	TOTALMS 0.055936
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N       8192	LOGN 13	elem_per_sec	1499707085.753413	TOTALMS 0.054624
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N      16384	LOGN 14	elem_per_sec	2942528748.444544	TOTALMS 0.055680
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N      32768	LOGN 15	elem_per_sec	6041297886.739466	TOTALMS 0.054240
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N      65536	LOGN 16	elem_per_sec	10583979287.106865	TOTALMS 0.061920
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N     131072	LOGN 17	elem_per_sec	13648783717.888552	TOTALMS 0.096032
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N     262144	LOGN 18	elem_per_sec	24229517982.173668	TOTALMS 0.108192
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N     524288	LOGN 19	elem_per_sec	36255808733.704124	TOTALMS 0.144608
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N    1048576	LOGN 20	elem_per_sec	45848607829.147202	TOTALMS 0.228704
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N    2097152	LOGN 21	elem_per_sec	53859304180.145561	TOTALMS 0.389376
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N    4194304	LOGN 22	elem_per_sec	56579470128.400383	TOTALMS 0.741312
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N    8388608	LOGN 23	elem_per_sec	25001096434.235901	TOTALMS 3.355296
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N   16777216	LOGN 24	elem_per_sec	24266638100.813560	TOTALMS 6.913696
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N   33554432	LOGN 25	elem_per_sec	24176112354.265076	TOTALMS 13.879168
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N   67108864	LOGN 26	elem_per_sec	24020378662.294655	TOTALMS 27.938304
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N  134217728	LOGN 27	elem_per_sec	24086313916.183472	TOTALMS 55.723648
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_256	N  268435456	LOGN 28	elem_per_sec	24126187657.009315	TOTALMS 111.263105
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N        256	LOGN 8	elem_per_sec	84745763.415716	TOTALMS 0.030208
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N        512	LOGN 9	elem_per_sec	165803107.683772	TOTALMS 0.030880
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N       1024	LOGN 10	elem_per_sec	186046510.031714	TOTALMS 0.055040
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N       2048	LOGN 11	elem_per_sec	366762177.357792	TOTALMS 0.055840
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N       4096	LOGN 12	elem_per_sec	765550239.918001	TOTALMS 0.053504
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N       8192	LOGN 13	elem_per_sec	1539386634.628302	TOTALMS 0.053216
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N      16384	LOGN 14	elem_per_sec	2895927622.528979	TOTALMS 0.056576
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N      32768	LOGN 15	elem_per_sec	5648097136.616801	TOTALMS 0.058016
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N      65536	LOGN 16	elem_per_sec	9961089506.093557	TOTALMS 0.065792
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N     131072	LOGN 17	elem_per_sec	20823589336.120911	TOTALMS 0.062944
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N     262144	LOGN 18	elem_per_sec	30831765095.903912	TOTALMS 0.085024
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N     524288	LOGN 19	elem_per_sec	35726122564.828529	TOTALMS 0.146752
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N    1048576	LOGN 20	elem_per_sec	45322268764.393929	TOTALMS 0.231360
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N    2097152	LOGN 21	elem_per_sec	51340382957.000740	TOTALMS 0.408480
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N    4194304	LOGN 22	elem_per_sec	55234724484.306068	TOTALMS 0.759360
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N    8388608	LOGN 23	elem_per_sec	24917447240.994213	TOTALMS 3.366560
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N   16777216	LOGN 24	elem_per_sec	24522357340.235077	TOTALMS 6.841600
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N   33554432	LOGN 25	elem_per_sec	24447004050.838379	TOTALMS 13.725376
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N   67108864	LOGN 26	elem_per_sec	24427953154.550583	TOTALMS 27.472160
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N  134217728	LOGN 27	elem_per_sec	24341376367.915073	TOTALMS 55.139745
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_512	N  268435456	LOGN 28	elem_per_sec	24391515094.426258	TOTALMS 110.052801
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N        256	LOGN 8	elem_per_sec	79840319.580972	TOTALMS 0.032064
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N        512	LOGN 9	elem_per_sec	172599782.717460	TOTALMS 0.029664
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N       1024	LOGN 10	elem_per_sec	363636363.802809	TOTALMS 0.028160
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N       2048	LOGN 11	elem_per_sec	374050262.034746	TOTALMS 0.054752
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N       4096	LOGN 12	elem_per_sec	735632180.958919	TOTALMS 0.055680
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N       8192	LOGN 13	elem_per_sec	1450424922.470323	TOTALMS 0.056480
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N      16384	LOGN 14	elem_per_sec	3082480402.647022	TOTALMS 0.053152
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N      32768	LOGN 15	elem_per_sec	5775521631.792164	TOTALMS 0.056736
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N      65536	LOGN 16	elem_per_sec	10529562923.040577	TOTALMS 0.062240
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N     131072	LOGN 17	elem_per_sec	15687475954.195074	TOTALMS 0.083552
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N     262144	LOGN 18	elem_per_sec	22736608444.330307	TOTALMS 0.115296
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N     524288	LOGN 19	elem_per_sec	29724238007.984314	TOTALMS 0.176384
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N    1048576	LOGN 20	elem_per_sec	33446973641.959301	TOTALMS 0.313504
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N    2097152	LOGN 21	elem_per_sec	35068493512.294647	TOTALMS 0.598016
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N    4194304	LOGN 22	elem_per_sec	36256812341.068466	TOTALMS 1.156832
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N    8388608	LOGN 23	elem_per_sec	20286329096.692410	TOTALMS 4.135104
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N   16777216	LOGN 24	elem_per_sec	20399596934.127926	TOTALMS 8.224288
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N   33554432	LOGN 25	elem_per_sec	20457145466.240570	TOTALMS 16.402304
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N   67108864	LOGN 26	elem_per_sec	20519074544.257156	TOTALMS 32.705600
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N  134217728	LOGN 27	elem_per_sec	20593991016.479752	TOTALMS 65.173248
-prefix_scan	config=configs/target_params.txt,target=prefix_scan_1024	N  268435456	LOGN 28	elem_per_sec	20433276731.681309	TOTALMS 131.371713
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N        256	LOGN 8	elem_per_sec	48750761.438315	TOTALMS 0.052512
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N        512	LOGN 9	elem_per_sec	97205346.042642	TOTALMS 0.052672
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N       1024	LOGN 10	elem_per_sec	188679246.164112	TOTALMS 0.054272
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N       2048	LOGN 11	elem_per_sec	383463150.492428	TOTALMS 0.053408
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N       4096	LOGN 12	elem_per_sec	825274004.510437	TOTALMS 0.049632
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N       8192	LOGN 13	elem_per_sec	948850991.702010	TOTALMS 0.086336
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N      16384	LOGN 14	elem_per_sec	2030134794.056647	TOTALMS 0.080704
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N      32768	LOGN 15	elem_per_sec	3771639089.625526	TOTALMS 0.086880
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N      65536	LOGN 16	elem_per_sec	6867873830.588830	TOTALMS 0.095424
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N     131072	LOGN 17	elem_per_sec	12453633157.055443	TOTALMS 0.105248
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N     262144	LOGN 18	elem_per_sec	21228297384.269756	TOTALMS 0.123488
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N     524288	LOGN 19	elem_per_sec	24659843437.219494	TOTALMS 0.212608
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N    1048576	LOGN 20	elem_per_sec	31195735288.075169	TOTALMS 0.336128
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N    2097152	LOGN 21	elem_per_sec	35476641745.543434	TOTALMS 0.591136
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N    4194304	LOGN 22	elem_per_sec	35933764916.937943	TOTALMS 1.167232
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N    8388608	LOGN 23	elem_per_sec	24619083055.618595	TOTALMS 3.407360
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N   16777216	LOGN 24	elem_per_sec	23950371160.428528	TOTALMS 7.004992
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N   33554432	LOGN 25	elem_per_sec	23810438652.026985	TOTALMS 14.092320
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N   67108864	LOGN 26	elem_per_sec	23722848794.713234	TOTALMS 28.288704
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N  134217728	LOGN 27	elem_per_sec	23864927990.453857	TOTALMS 56.240575
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_64	N  268435456	LOGN 28	elem_per_sec	23629914739.185284	TOTALMS 113.599841
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N        256	LOGN 8	elem_per_sec	48367594.359604	TOTALMS 0.052928
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N        512	LOGN 9	elem_per_sec	97146326.812620	TOTALMS 0.052704
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N       1024	LOGN 10	elem_per_sec	194057004.480746	TOTALMS 0.052768
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N       2048	LOGN 11	elem_per_sec	402010053.792544	TOTALMS 0.050944
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N       4096	LOGN 12	elem_per_sec	794537547.292866	TOTALMS 0.051552
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N       8192	LOGN 13	elem_per_sec	1474654385.466204	TOTALMS 0.055552
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N      16384	LOGN 14	elem_per_sec	3212045196.280096	TOTALMS 0.051008
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N      32768	LOGN 15	elem_per_sec	3987538901.448957	TOTALMS 0.082176
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N      65536	LOGN 16	elem_per_sec	7130919226.768580	TOTALMS 0.091904
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N     131072	LOGN 17	elem_per_sec	13381248103.789680	TOTALMS 0.097952
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N     262144	LOGN 18	elem_per_sec	25472636721.750340	TOTALMS 0.102912
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N     524288	LOGN 19	elem_per_sec	35493934210.747749	TOTALMS 0.147712
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N    1048576	LOGN 20	elem_per_sec	45004806862.433929	TOTALMS 0.232992
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N    2097152	LOGN 21	elem_per_sec	53503143020.875999	TOTALMS 0.391968
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N    4194304	LOGN 22	elem_per_sec	53647675679.004761	TOTALMS 0.781824
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N    8388608	LOGN 23	elem_per_sec	24654741117.896637	TOTALMS 3.402432
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N   16777216	LOGN 24	elem_per_sec	24122496951.524261	TOTALMS 6.955008
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N   33554432	LOGN 25	elem_per_sec	23973150130.159035	TOTALMS 13.996672
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N   67108864	LOGN 26	elem_per_sec	23862212297.710438	TOTALMS 28.123488
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N  134217728	LOGN 27	elem_per_sec	24017971571.751892	TOTALMS 55.882208
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_128	N  268435456	LOGN 28	elem_per_sec	23755861738.641426	TOTALMS 112.997566
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N        256	LOGN 8	elem_per_sec	92059839.332454	TOTALMS 0.027808
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N        512	LOGN 9	elem_per_sec	100062539.360906	TOTALMS 0.051168
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N       1024	LOGN 10	elem_per_sec	192655023.477601	TOTALMS 0.053152
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N       2048	LOGN 11	elem_per_sec	347826087.490844	TOTALMS 0.058880
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N       4096	LOGN 12	elem_per_sec	768307324.554388	TOTALMS 0.053312
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N       8192	LOGN 13	elem_per_sec	1526535473.218866	TOTALMS 0.053664
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N      16384	LOGN 14	elem_per_sec	2935779826.987907	TOTALMS 0.055808
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N      32768	LOGN 15	elem_per_sec	6080760138.279143	TOTALMS 0.053888
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N      65536	LOGN 16	elem_per_sec	10540401227.774796	TOTALMS 0.062176
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N     131072	LOGN 17	elem_per_sec	13094629352.788488	TOTALMS 0.100096
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N     262144	LOGN 18	elem_per_sec	25175168718.646729	TOTALMS 0.104128
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N     524288	LOGN 19	elem_per_sec	35788554237.796005	TOTALMS 0.146496
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N    1048576	LOGN 20	elem_per_sec	45159867985.193626	TOTALMS 0.232192
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N    2097152	LOGN 21	elem_per_sec	53031234671.745155	TOTALMS 0.395456
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N    4194304	LOGN 22	elem_per_sec	56694494229.610031	TOTALMS 0.739808
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N    8388608	LOGN 23	elem_per_sec	24905610115.398880	TOTALMS 3.368160
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N   16777216	LOGN 24	elem_per_sec	24344047264.433819	TOTALMS 6.891712
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N   33554432	LOGN 25	elem_per_sec	24482393298.998226	TOTALMS 13.705536
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N   67108864	LOGN 26	elem_per_sec	24155616981.936592	TOTALMS 27.781888
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N  134217728	LOGN 27	elem_per_sec	24063388404.122189	TOTALMS 55.776737
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_256	N  268435456	LOGN 28	elem_per_sec	23994984245.330296	TOTALMS 111.871487
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N        256	LOGN 8	elem_per_sec	96501810.618652	TOTALMS 0.026528
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N        512	LOGN 9	elem_per_sec	190249704.989720	TOTALMS 0.026912
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N       1024	LOGN 10	elem_per_sec	196439534.514155	TOTALMS 0.052128
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N       2048	LOGN 11	elem_per_sec	379596681.074415	TOTALMS 0.053952
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N       4096	LOGN 12	elem_per_sec	749853542.876707	TOTALMS 0.054624
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N       8192	LOGN 13	elem_per_sec	1559074283.061264	TOTALMS 0.052544
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N      16384	LOGN 14	elem_per_sec	3118148593.756532	TOTALMS 0.052544
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N      32768	LOGN 15	elem_per_sec	6095238090.828568	TOTALMS 0.053760
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N      65536	LOGN 16	elem_per_sec	11028540682.792477	TOTALMS 0.059424
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N     131072	LOGN 17	elem_per_sec	19412322397.108459	TOTALMS 0.067520
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N     262144	LOGN 18	elem_per_sec	30184229896.524410	TOTALMS 0.086848
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N     524288	LOGN 19	elem_per_sec	36336216526.645462	TOTALMS 0.144288
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N    1048576	LOGN 20	elem_per_sec	44685667078.545227	TOTALMS 0.234656
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N    2097152	LOGN 21	elem_per_sec	51120124094.491722	TOTALMS 0.410240
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N    4194304	LOGN 22	elem_per_sec	55302308398.931778	TOTALMS 0.758432
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N    8388608	LOGN 23	elem_per_sec	24878664778.382496	TOTALMS 3.371808
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N   16777216	LOGN 24	elem_per_sec	24511122195.128071	TOTALMS 6.844736
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N   33554432	LOGN 25	elem_per_sec	24452533739.278816	TOTALMS 13.722272
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N   67108864	LOGN 26	elem_per_sec	24422747350.122452	TOTALMS 27.478016
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N  134217728	LOGN 27	elem_per_sec	24339836663.590466	TOTALMS 55.143233
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_512	N  268435456	LOGN 28	elem_per_sec	24369938169.109489	TOTALMS 110.150241
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N        256	LOGN 8	elem_per_sec	86486485.780069	TOTALMS 0.029600
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N        512	LOGN 9	elem_per_sec	197775031.540647	TOTALMS 0.025888
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N       1024	LOGN 10	elem_per_sec	311587149.713931	TOTALMS 0.032864
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N       2048	LOGN 11	elem_per_sec	359147021.542199	TOTALMS 0.057024
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N       4096	LOGN 12	elem_per_sec	762358543.052201	TOTALMS 0.053728
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N       8192	LOGN 13	elem_per_sec	1646302255.802906	TOTALMS 0.049760
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N      16384	LOGN 14	elem_per_sec	3246670918.449535	TOTALMS 0.050464
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N      32768	LOGN 15	elem_per_sec	6041297938.605221	TOTALMS 0.054240
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N      65536	LOGN 16	elem_per_sec	9941747718.621902	TOTALMS 0.065920
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N     131072	LOGN 17	elem_per_sec	16292760589.473661	TOTALMS 0.080448
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N     262144	LOGN 18	elem_per_sec	23855562139.145107	TOTALMS 0.109888
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N     524288	LOGN 19	elem_per_sec	29008498628.781475	TOTALMS 0.180736
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N    1048576	LOGN 20	elem_per_sec	32689545604.379780	TOTALMS 0.320768
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N    2097152	LOGN 21	elem_per_sec	34861429100.564217	TOTALMS 0.601568
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N    4194304	LOGN 22	elem_per_sec	36358390893.501572	TOTALMS 1.153600
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N    8388608	LOGN 23	elem_per_sec	20274718749.392002	TOTALMS 4.137472
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N   16777216	LOGN 24	elem_per_sec	20389442159.496323	TOTALMS 8.228384
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N   33554432	LOGN 25	elem_per_sec	20423078478.251789	TOTALMS 16.429664
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N   67108864	LOGN 26	elem_per_sec	20480819965.050285	TOTALMS 32.766688
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N  134217728	LOGN 27	elem_per_sec	20578299631.330273	TOTALMS 65.222944
+prefix_scan	impl=my	config=configs/target_params.txt,target=prefix_scan_1024	N  268435456	LOGN 28	elem_per_sec	20408733785.253757	TOTALMS 131.529696

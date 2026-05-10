@@ -1,4 +1,5 @@
 prev/
 kernels/*/bin/
+plan.txt
 .*
 !.gitignore

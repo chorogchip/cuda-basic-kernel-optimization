@@ -1,0 +1,10 @@
+fused_ops	impl=my	config=configs/target_params.txt,target=fused_ops_1_256	N       1024	LOGN 10	elem_per_sec	394574600.201066	TOTALMS 0.025952
+fused_ops	impl=my	config=configs/target_params.txt,target=fused_ops_1_256	N       4096	LOGN 12	elem_per_sec	1729729730.907999	TOTALMS 0.023680
+fused_ops	impl=my	config=configs/target_params.txt,target=fused_ops_1_512	N      16384	LOGN 14	elem_per_sec	6360248421.046162	TOTALMS 0.025760
+fused_ops	impl=my	config=configs/target_params.txt,target=fused_ops_1_256	N      65536	LOGN 16	elem_per_sec	22456140362.784592	TOTALMS 0.029184
+fused_ops	impl=my	config=configs/target_params.txt,target=fused_ops_1_128	N     262144	LOGN 18	elem_per_sec	62582123791.587891	TOTALMS 0.041888
+fused_ops	impl=my	config=configs/target_params.txt,target=fused_ops_1_128	N    1048576	LOGN 20	elem_per_sec	107612479814.545990	TOTALMS 0.097440
+fused_ops	impl=my	config=configs/target_params.txt,target=fused_ops_1_128	N    4194304	LOGN 22	elem_per_sec	43581712529.837608	TOTALMS 0.962400
+fused_ops	impl=my	config=configs/target_params.txt,target=fused_ops_1_128	N   16777216	LOGN 24	elem_per_sec	33473453701.055164	TOTALMS 5.012096
+fused_ops	impl=my	config=configs/target_params.txt,target=fused_ops_1_512	N   67108864	LOGN 26	elem_per_sec	33374370072.944778	TOTALMS 20.107904
+fused_ops	impl=my	config=configs/target_params.txt,target=fused_ops_1_512	N  134217728	LOGN 27	elem_per_sec	33093714719.217369	TOTALMS 40.556864

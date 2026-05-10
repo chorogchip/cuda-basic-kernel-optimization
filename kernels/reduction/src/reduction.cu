@@ -4,6 +4,7 @@
 #include <cstdlib>
 
 #include "../../../common/culib.h"
+#include <cub/cub.cuh>
 #include <cuda_runtime.h>
 
 namespace {
@@ -27,6 +28,8 @@ struct Data {
     float* d_a;
     float* d_b;
     float* d_result;
+    void* d_temp_storage;
+    size_t temp_storage_bytes;
 } data_;
 
 #if REDUCTION_VERSION == 2
@@ -100,6 +103,8 @@ void init_problem(size_t n) {
     data_.d_a = nullptr;
     data_.d_b = nullptr;
     data_.d_result = nullptr;
+    data_.d_temp_storage = nullptr;
+    data_.temp_storage_bytes = 0;
     if (data_.h_a == nullptr || data_.h_b == nullptr) {
         std::fprintf(stderr, "Host allocation failed for reduction buffers (count=%zu)\n", n);
         std::free(data_.h_a);
@@ -129,6 +134,14 @@ void init_problem(size_t n) {
     CHECK_CUDA(cudaMalloc(&data_.d_a, bytes));
     CHECK_CUDA(cudaMalloc(&data_.d_b, bytes));
     CHECK_CUDA(cudaMemcpy(data_.d_a, data_.h_a, bytes, cudaMemcpyHostToDevice));
+    CHECK_CUDA(cub::DeviceReduce::Sum(
+        nullptr,
+        data_.temp_storage_bytes,
+        data_.d_a,
+        data_.d_b,
+        data_.n
+    ));
+    CHECK_CUDA(cudaMalloc(&data_.d_temp_storage, data_.temp_storage_bytes));
 }
 
 void exec_problem() {
@@ -144,6 +157,17 @@ void exec_problem() {
     reduce_to_one(d_reduce_in, d_reduce_out, data_.n);
     data_.d_result = d_reduce_in;
 #endif
+}
+
+void exec_baseline() {
+    CHECK_CUDA(cub::DeviceReduce::Sum(
+        data_.d_temp_storage,
+        data_.temp_storage_bytes,
+        data_.d_a,
+        data_.d_b,
+        data_.n
+    ));
+    data_.d_result = data_.d_b;
 }
 
 bool validate_problem() {
@@ -171,9 +195,21 @@ bool validate_problem() {
 #endif
 }
 
+bool validate_baseline() {
+    float device_result = 0.0f;
+    CHECK_CUDA(cudaMemcpy(&device_result, data_.d_result, sizeof(float), cudaMemcpyDeviceToHost));
+
+    double sum_ans = 0.0;
+    for (size_t i = 0; i < data_.n; ++i) {
+        sum_ans += data_.h_a[i];
+    }
+    return std::abs(sum_ans - static_cast<double>(device_result)) <= 0.0001 * static_cast<double>(data_.n);
+}
+
 void clear_problem() {
     CHECK_CUDA(cudaFree(data_.d_a));
     CHECK_CUDA(cudaFree(data_.d_b));
+    CHECK_CUDA(cudaFree(data_.d_temp_storage));
     std::free(data_.h_a);
     std::free(data_.h_b);
 }

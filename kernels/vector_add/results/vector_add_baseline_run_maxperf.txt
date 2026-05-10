@@ -1,0 +1,16 @@
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N       1024	LOGN 10	elem_per_sec	154589371.810622	TOTALMS 0.066240
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N       2048	LOGN 11	elem_per_sec	332986468.104852	TOTALMS 0.061504
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N       4096	LOGN 12	elem_per_sec	634605843.755316	TOTALMS 0.064544
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N       8192	LOGN 13	elem_per_sec	1304791023.329687	TOTALMS 0.062784
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N      16384	LOGN 14	elem_per_sec	2608252671.244370	TOTALMS 0.062816
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N      32768	LOGN 15	elem_per_sec	5132832008.627455	TOTALMS 0.063840
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N      65536	LOGN 16	elem_per_sec	10044139145.235071	TOTALMS 0.065248
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N     131072	LOGN 17	elem_per_sec	19086672889.542278	TOTALMS 0.068672
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N     262144	LOGN 18	elem_per_sec	35325571489.061287	TOTALMS 0.074208
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N     524288	LOGN 19	elem_per_sec	58161163147.041649	TOTALMS 0.090144
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N    1048576	LOGN 20	elem_per_sec	91479620943.862747	TOTALMS 0.114624
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N    2097152	LOGN 21	elem_per_sec	126006536676.939545	TOTALMS 0.166432
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N    4194304	LOGN 22	elem_per_sec	41833269288.903473	TOTALMS 1.002624
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N    8388608	LOGN 23	elem_per_sec	33155504891.847172	TOTALMS 2.530080
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N   16777216	LOGN 24	elem_per_sec	33056000546.635845	TOTALMS 5.075392
+vector_add	impl=baseline	config=configs/target_params.txt,target=vector_add	N   33554432	LOGN 25	elem_per_sec	33073203470.360275	TOTALMS 10.145504

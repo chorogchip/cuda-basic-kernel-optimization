@@ -1,0 +1,9 @@
+histogram	impl=my	config=configs/target_params.txt,target=histogram_1_256_256	N       1024	LOGN 10	elem_per_sec	253365004.302032	TOTALMS 0.040416
+histogram	impl=my	config=configs/target_params.txt,target=histogram_1_128_256	N       4096	LOGN 12	elem_per_sec	948148133.774353	TOTALMS 0.043200
+histogram	impl=my	config=configs/target_params.txt,target=histogram_1_256_256	N      16384	LOGN 14	elem_per_sec	2447418743.696845	TOTALMS 0.066944
+histogram	impl=my	config=configs/target_params.txt,target=histogram_1_128_256	N      65536	LOGN 16	elem_per_sec	4896007602.094661	TOTALMS 0.133856
+histogram	impl=my	config=configs/target_params.txt,target=histogram_1_512_256	N     262144	LOGN 18	elem_per_sec	6239146891.659444	TOTALMS 0.420160
+histogram	impl=my	config=configs/target_params.txt,target=histogram_1_512_256	N    1048576	LOGN 20	elem_per_sec	6698282787.191025	TOTALMS 1.565440
+histogram	impl=my	config=configs/target_params.txt,target=histogram_1_128_256	N    4194304	LOGN 22	elem_per_sec	6817966622.610597	TOTALMS 6.151840
+histogram	impl=my	config=configs/target_params.txt,target=histogram_1_512_256	N   16777216	LOGN 24	elem_per_sec	6818977602.535507	TOTALMS 24.603712
+histogram	impl=my	config=configs/target_params.txt,target=histogram_1_128_256	N   67108864	LOGN 26	elem_per_sec	6827946890.226002	TOTALMS 98.285568

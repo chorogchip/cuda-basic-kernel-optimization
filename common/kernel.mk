@@ -5,6 +5,7 @@ RESULTS_DIR := $(KERNEL_DIR)/results
 # By default, each kernel family writes one aggregated sweep log under its own
 # results dir. Versioned kernels can opt into one log per version.
 RUN_OUTPUT_FILE := $(RESULTS_DIR)/$(KERNEL_NAME)_run.txt
+BASELINE_OUTPUT_FILE := $(RESULTS_DIR)/$(KERNEL_NAME)_baseline_run.txt
 DEFAULT_ROW := __default__
 comma := ,
 empty :=
@@ -59,19 +60,37 @@ $(foreach build_row,$(BUILD_ROWS), \
 
 TARGETS := $(addprefix $(BIN_DIR)/,$(TARGET_NAMES))
 RUN_OUTPUT_FILES := $(if $(VERSION_VALUES),$(foreach version,$(VERSION_VALUES),$(RESULTS_DIR)/$(KERNEL_NAME)_$(version)_run.txt),$(RUN_OUTPUT_FILE))
+BASELINE_TARGET_NAMES ?= $(firstword $(TARGET_NAMES))
+BASELINE_TARGETS := $(addprefix $(BIN_DIR)/,$(BASELINE_TARGET_NAMES))
 
-.PHONY: all run clean-run clean
+.PHONY: all run run-my run-baseline run-all clean-run clean
 
 all: $(TARGETS)
 
-run:
+run: run-my
+
+run-my:
 	@$(MAKE) --no-print-directory -s $(RUN_OUTPUT_FILES)
+
+run-baseline: $(BASELINE_TARGETS)
+	@mkdir -p $(RESULTS_DIR)
+	@: > $(BASELINE_OUTPUT_FILE)
+	@set -e; \
+	for target in $(BASELINE_TARGET_NAMES); do \
+		for n in $(SIZES); do \
+			printf 'running baseline: %s %s\n' "$$target" "$$n"; \
+			./bin/$$target $$n baseline >> $(BASELINE_OUTPUT_FILE); \
+		done; \
+	done
+
+run-all: run-my run-baseline
 
 $(RUN_OUTPUT_FILE): $(TARGETS)
 	@mkdir -p $(dir $@)
 	@: > $@
 	@# Run every built target across every configured size and append to one file.
-	@for target in $(TARGET_NAMES); do \
+	@set -e; \
+	for target in $(TARGET_NAMES); do \
 		for n in $(SIZES); do \
 			printf 'running: %s %s\n' "$$target" "$$n"; \
 			./bin/$$target $$n >> $@; \
@@ -82,7 +101,8 @@ define make_version_run_rule
 $(RESULTS_DIR)/$(KERNEL_NAME)_$(1)_run.txt: $(addprefix $(BIN_DIR)/,$(TARGET_NAMES_VERSION_$(1)))
 	@mkdir -p $$(dir $$@)
 	@: > $$@
-	@for target in $(TARGET_NAMES_VERSION_$(1)); do \
+	@set -e; \
+	for target in $(TARGET_NAMES_VERSION_$(1)); do \
 		for n in $(SIZES); do \
 			printf 'running: %s %s\n' "$$$$target" "$$$$n"; \
 			./bin/$$$$target $$$$n >> $$@; \
@@ -101,10 +121,10 @@ $(BIN_DIR)/%: $(SRC) $(MAIN_SRC) $(LIB_SRC) $(TARGETS_FILE) | $(BIN_DIR)
 	@$(NVCC) $(SRC) $(MAIN_SRC) $(LIB_SRC) $(NVCCFLAGS) $(TARGET_FLAGS_$*) \
 		-DMY_CUDA_SOURCE_NAME="\"$(KERNEL_NAME)\"" \
 		-DMY_CUDA_BUILD_CONFIG="\"config=$(notdir $(CONFIG_DIR))/$(notdir $(TARGETS_FILE)),target=$*\"" \
-		-o $@
+		-o $@ $(LDLIBS)
 
 clean-run:
-	@rm -f $(RUN_OUTPUT_FILE) $(RUN_OUTPUT_FILES)
+	@rm -f $(RESULTS_DIR)/*_run.txt $(RESULTS_DIR)/*_run_maxperf.txt
 
 clean:
-	@rm -f $(TARGETS)
+	@rm -f $(BIN_DIR)/$(KERNEL_NAME)*

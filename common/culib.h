@@ -4,12 +4,18 @@
 #include <cstddef>
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 
 #include <cuda_runtime.h>
 
 namespace my_cuda_opt {
 
 constexpr int kBenchmarkIterations = 10;
+
+enum class ImplMode {
+    kProblem,
+    kBaseline,
+};
 
 inline void check_cuda(cudaError_t err, const char* expr, const char* file, int line) {
     if (err != cudaSuccess) {
@@ -25,9 +31,9 @@ inline void check_cuda(cudaError_t err, const char* expr, const char* file, int 
     }
 }
 
-inline bool parse_size_t_arg(int argc, const char** argv, size_t* out_n) {
-    if (argc != 2) {
-        std::fprintf(stderr, "Usage: %s <n>\n", argv[0]);
+inline bool parse_args(int argc, const char** argv, size_t* out_n, ImplMode* out_mode) {
+    if (argc != 2 && argc != 3) {
+        std::fprintf(stderr, "Usage: %s <n> [my|baseline]\n", argv[0]);
         return false;
     }
 
@@ -43,7 +49,24 @@ inline bool parse_size_t_arg(int argc, const char** argv, size_t* out_n) {
     }
 
     *out_n = n;
+    *out_mode = ImplMode::kProblem;
+
+    if (argc == 3) {
+        if (std::strcmp(argv[2], "my") == 0) {
+            *out_mode = ImplMode::kProblem;
+        } else if (std::strcmp(argv[2], "baseline") == 0) {
+            *out_mode = ImplMode::kBaseline;
+        } else {
+            std::fprintf(stderr, "Error: invalid implementation mode [%s]\n", argv[2]);
+            return false;
+        }
+    }
+
     return true;
+}
+
+inline const char* impl_mode_name(ImplMode mode) {
+    return mode == ImplMode::kBaseline ? "baseline" : "my";
 }
 
 inline size_t floor_log2_ceil(size_t n) {
@@ -65,6 +88,8 @@ void init_problem(size_t n);
 void exec_problem();
 bool validate_problem();
 void clear_problem();
+void exec_baseline();
+bool validate_baseline();
 
 #define CHECK_CUDA(expr) my_cuda_opt::check_cuda((expr), #expr, __FILE__, __LINE__)
 

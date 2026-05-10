@@ -1,0 +1,104 @@
+CUDA kernel framework progress
+Date: 2026-05-06
+
+Summary
+- Added framework directories for ten new kernel families:
+  histogram, convolution_2d, softmax, layernorm, fused_ops,
+  stream_compaction, radix_sort, top_k, spmv, gather_scatter.
+- Each new family has Makefile, README.md, configs, results, and src layout.
+- Added naive custom CUDA kernels for all ten families.
+- Added NVIDIA-library baseline mode for all ten families.
+- Added Makefile pipeline targets for build, run, summarize, and plot.
+
+Naive custom kernels
+- histogram: one thread per input, global atomicAdd into bins.
+- convolution_2d: one thread per output pixel, direct filter loop.
+- softmax: single-thread numerically stable max, exp, sum, normalize.
+- layernorm: single-thread mean, variance, normalize.
+- fused_ops: one thread per element for relu(x + bias).
+- stream_compaction: single-thread stable positive-value compaction.
+- radix_sort: naive O(N^2) rank-based sort.
+- top_k: naive O(N^2) rank-based top-k.
+- spmv: one thread per CSR row.
+- gather_scatter: one thread per output gather.
+
+NVIDIA-library baselines
+- vector_add: Thrust transform.
+- transpose: Thrust transform over output indices.
+- reduction: CUB DeviceReduce::Sum.
+- prefix_scan: CUB DeviceScan::InclusiveSum.
+- histogram: CUB DeviceHistogram.
+- stream_compaction: CUB DeviceSelect::If.
+- radix_sort: CUB DeviceRadixSort.
+- spmv: cuSPARSE cusparseSpMV.
+- softmax: Thrust max/reduce/transform.
+- layernorm: Thrust reduce/transform_reduce/transform.
+- fused_ops: Thrust transform over zipped x and bias.
+- top_k: Thrust sort, then copy first K.
+- convolution_2d: Thrust transform over output indices.
+- gather_scatter: Thrust gather.
+
+Runner and result format
+- Executables still default to custom kernel mode:
+  ./bin/softmax_1_128 1048576
+- Baseline mode is selected with the optional third argument:
+  ./bin/softmax_1_128 1048576 baseline
+- Result rows now include implementation tags:
+  impl=my
+  impl=baseline
+- Plot parsing was updated to show custom and baseline runs as separate series.
+
+Top-level Make targets
+- make run-all
+  Runs configured custom-kernel sweeps.
+- make run-baseline-all
+  Runs configured NVIDIA-library baseline sweeps.
+- make summarize-all
+  Summarizes all *_run.txt files into *_run_maxperf.txt files.
+- make plot-all
+  Plots all non-empty result files grouped by kernel family.
+- make pipeline-all
+  Builds, runs custom kernels, runs baselines, summarizes, and plots.
+- make pipeline-baseline-all
+  Builds, runs baselines, summarizes, and plots.
+- make pipeline-softmax
+  Runs the full pipeline for one kernel family.
+
+Verification done
+- Rebuilt all ten new kernel families successfully with make clean all.
+- Dry-ran pipeline targets with make -n.
+- Ran make pipeline-all once.
+
+Known blocker
+- Runtime execution on this host failed at cudaMalloc with:
+  no CUDA-capable device is detected
+- Because of that, benchmark result files and plots could not be generated here.
+- Run make pipeline-softmax first on the GPU server, then make pipeline-all when ready.
+
+Performance note
+- The naive kernels are correctness-first starting points.
+- softmax, layernorm, stream_compaction, radix_sort, and top_k are intentionally very slow at large sizes.
+- Per-kernel pipelines are recommended while developing naive kernels.
+
+Update: original-kernel baselines
+- Added NVIDIA-library baseline mode to the original four kernels.
+- vector_add baseline uses Thrust transform with plus.
+- transpose baseline uses Thrust transform over output indices.
+- reduction baseline uses CUB DeviceReduce::Sum.
+- prefix_scan baseline uses CUB DeviceScan::InclusiveSum.
+- Top-level run-baseline-all now includes all fourteen kernel families.
+- Baseline runs are independent of version sweeps by default: each kernel family runs one representative baseline target unless BASELINE_TARGET_NAMES is overridden.
+
+Update: full pipeline attempt on 2026-05-11
+- Rebuilt all kernel binaries successfully after adding original-kernel baselines.
+- Tried make pipeline-all to generate all custom and baseline result files.
+- Runtime execution failed on the first CUDA allocation with:
+  no CUDA-capable device is detected
+- nvidia-smi also failed to communicate with the NVIDIA driver.
+- New benchmark result files could not be generated on this host.
+- Re-ran make summarize-all and make plot-all using the existing non-empty result files.
+- Regenerated plots:
+  plots/vector_add_run_plot.png
+  plots/transpose_combined_plot.png
+  plots/reduction_combined_plot.png
+  plots/prefix_scan_run_plot.png

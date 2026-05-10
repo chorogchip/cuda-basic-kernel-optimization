@@ -4,6 +4,9 @@
 
 #include "../../../common/culib.h"
 #include <cuda_runtime.h>
+#include <thrust/device_ptr.h>
+#include <thrust/functional.h>
+#include <thrust/transform.h>
 
 namespace {
 
@@ -69,6 +72,13 @@ void exec_problem() {
     CHECK_CUDA(cudaGetLastError());
 }
 
+void exec_baseline() {
+    thrust::device_ptr<float> a(data_.d_a);
+    thrust::device_ptr<float> b(data_.d_b);
+    thrust::device_ptr<float> c(data_.d_c);
+    thrust::transform(a, a + data_.n, b, c, thrust::plus<float>());
+}
+
 bool validate_problem() {
     CHECK_CUDA(cudaMemcpy(data_.h_c, data_.d_c, data_.n * sizeof(float), cudaMemcpyDeviceToHost));
     for (size_t i = 0; i < data_.n; ++i) {
@@ -77,6 +87,10 @@ bool validate_problem() {
         }
     }
     return true;
+}
+
+bool validate_baseline() {
+    return validate_problem();
 }
 
 void clear_problem() {
