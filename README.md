@@ -3,7 +3,8 @@
 ## 1. Introduction
 
 This project optimizes CUDA kernels.
-<br>
+
+![](./plots/all_plots_grid.png)
 
 workflow:
 - implement baseline and tuned variants
@@ -25,6 +26,8 @@ Current kernel families:
 
 ### a. Vector Add `(88.3% of peak)`
 
+![](./plots/vector_add_combined_plot.png)
+
 - Reached about `123 GElem/s` at small working set size.
 - With `12 B/elem` traffic (`2` reads + `1` write), that corresponds to about `1476 GB/s`, which is explained by cache residency.
 - After the working set moved beyond cache-friendly size, throughput dropped to about `33 GElem/s`, or about `396 GB/s`.
@@ -34,6 +37,8 @@ Main takeaway:
 - vector add behaves as an almost pure memory-bandwidth probe, and the large-size plateau is close to the DRAM roofline.
 
 ### b. Matrix Transpose `(71.4% of peak)`
+
+![](./plots/transpose_combined_plot.png)
 
 - Naive transpose reached about `116 GElem/s` at smaller footprint and dropped to about `38 GElem/s` at larger footprint.
 - Shared-memory and bank-conflict variants were compared across several implementations.
@@ -46,6 +51,13 @@ Main takeaway:
 
 ### c. Reduction `(95.5% of peak)`
 
+<p align="center">
+  <img src="./plots/reduction_1_run_plot.png" width="48%">
+  <img src="./plots/reduction_2_run_plot.png" width="48%">
+</p>
+<br>
+![](./plots/reduction_maxperf_plot.png)
+
 - Early reduction experiments plateaued around `54 GElem/s`, then a launch-count bug and a validation issue were fixed.
 - After the fix, the best large-size throughput reached about `107 GElem/s`, which is about `428 GB/s`.
 - Using the same `448 GB/s` theoretical reference from the notes, that is about `95.5%` of peak DRAM bandwidth.
@@ -57,6 +69,8 @@ Main takeaway:
 - the reduction kernels are already very close to the memory-bandwidth roofline on large inputs, and the important tuning variables were read-per-thread and occupancy, not maximum block size.
 
 ### d. Prefix Scan `(86.7% of peak)`
+
+![](./plots/prefix_scan_combined_plot.png)
 
 - Implemented warp-level, block-level, and global multi-kernel prefix scan.
 - Peak performance appeared near the L2-sized region, with a plateau around `24.3 GElem/s` on larger sizes.
