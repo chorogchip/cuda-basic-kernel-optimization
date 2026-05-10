@@ -4,6 +4,13 @@
 
 This project optimizes CUDA kernels.
 
+| Kernel | Best Large-size Throughput | Bandwidth Estimate | % of Bandwidth Ceiling | Main Bottleneck |
+|---|---:|---:|---:|---|
+| Vector Add | ~33 GElem/s | ~396 GB/s | ~88.3% | DRAM bandwidth |
+| Matrix Transpose | ~40 GElem/s | ~320 GB/s | ~71.4% | access pattern / occupancy |
+| Reduction | ~107 GElem/s | ~428 GB/s | ~95.5% | DRAM bandwidth |
+| Prefix Scan | ~24.3 GElem/s | ~388.8 GB/s | ~86.7% | multi-pass global memory traffic |
+
 ![](./plots/all_plots_grid.png)
 
 workflow:
